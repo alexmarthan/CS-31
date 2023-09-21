@@ -1,0 +1,14 @@
+Alexandre Marthan
+UCLA ID: 505719814
+
+a. The toughest part for me was making the program stop when there was an input error. I didn't know that I could use return(1) in an if loop so that if there was an error in the input the program would stop completely. Another tough part was figuring out that I had to make the actors value equal to 10 (10/10) and not 1 in order for the calculation to work at the end.
+
+b. 
+
+Negative number when supposed to be submitting a positive int (tested for all int variables)
+Submitting a string instead of an int (tested for all int variables)
+Submitting an int instead of a string (tested for all string variables)
+Submitting lowercase (yes/no) instead of (Yes/No) (tested for all string variables)
+Submitting "Yes but No" (tested for all string variables)
+
+
