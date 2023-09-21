@@ -1,0 +1,34 @@
+Name: Alexandre Marthan
+Bruin ID: 505719814
+
+a. Notable obstacles I overcame:
+
+Finding out how to make a reverse algorithm in the flipAround function without creating a new array of size n. I was unable to create a new array of size n because n was only defined after compiling. I had a tough time figuring out how to reverse the array in another way.
+
+b.  
+
+    string array[6] = {"Dennis", "Nat", "Chris", "Sari", "Jalal","Johnny"};
+    string array2[5] = {"Dennis", "Dennis", "Chris", "Sari", "Jalal"};
+    string array3[5] = {"0", "1", "2", "3", "4"};
+    string array4[5] = {"0", "1", "1", "3", "1"};
+    string punctArr[4] = {"1","31'",".com", "-/:90"};
+
+    assert(locateMaximum(array, 5) == 3); test if it works
+    assert(locateMaximum(array, 4) == 3); test if it works with n smaller than size of arr
+    assert(hasNoDuplicates(array, 5) == 1); test if it works when there are no duplicates
+    assert(hasNoDuplicates(array2, 5) == 0); test if it works when there are duplicates
+    assert(hasNoDuplicates(array2, 3) == 0); test if it works with n smaller than size of arr
+    assert(countXPairs(array3, 5, 2) == 1); test if it works
+    assert(countXPairs(array3, 5, 15) == 0); test if it works when sum never gives number big enough
+    assert(countXPairs(array3, 5, 3) == 2); test if it works for multiple sums that work
+    assert(countXPairs(array2, 5, 3) == 0); test if it returns 0 for strings
+    assert(countXPairs(array, -123, 34) == -1); test if it works for n negative
+    assert(findSecondToLastOccurrence(array2,5,"Dennis") == 0); test if it works
+    assert(findSecondToLastOccurrence(array,5,"Dennis") == -1); test if it works when there aren't 	repetitions
+    assert(findSecondToLastOccurrence(array4,5,"1") == 2); test if it works for position farther in
+    
+    assert(countPunctuation(array,5) == 0); test if it works
+    assert(countPunctuation(punctArr,4) == 5); test if it works
+    assert(moveToEnd(array, 5, 3) == 3); test if it works
+    assert(moveToEnd(array, 5, 6) == -1); test if it returns negative 1 if pos exceeds n
+    assert(flipAround(array,5) == 2); test if it works
