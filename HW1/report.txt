@@ -1,0 +1,9 @@
+NAME: Alexandre Marthan
+UCLA ID: 505719814
+
+
+For step 5, I put in 300 for the number of democrats and 5 for the number of republicans. I got that the democrats were controlling the senate, with the comment “something is awry in the numbers”. I tried the same thing with 70 republicans and 3 democrats and got the opposite result but still had the comment “something is awry in the numbers”.
+
+For the logic_error.cpp file, I switched the greater or equal than symbol with a lesser or equal than symbol in the parentheses following the “if” line 29. I also changed the “!=“ symbol with an “==“ symbol. Now the program would say that whoever lost the senate (according to the inputted numbers) had won it. It would also say that something was awry when nothing was and vice versa.
+
+For the compile_error.cpp file, I removed a ‘;’ at the 23rd line and I removed the letter ‘o’ in the demoCount variable in line 29 to make it "demCount". The program doesn’t compile due to an “Expected ‘;’ after expression” and the “use of an undeclared identifier ‘demCount’.
