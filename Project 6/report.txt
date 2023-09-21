@@ -1,0 +1,63 @@
+Name: Alexandre Marthan
+Bruin ID: 505719814
+
+1) Notable obstacles I overcame are:
+
+In the determineGameOutcome function in the Mastermind class, I would get the error: "Invalid operands to binary expression ('cs31::Move' and 'const cs31::Move')". This was when I tried to compare the final move inputted to the winning move set at the beginning. I didn't understand why I was getting this error as both variables are of the same type "Move" on either end of the == operator. However this is because I wasn't using the a private member variable, and was constructing a new one. I often had this problem.
+
+My Mastermind::gameIsOver() function would not work. I noticed in the debugger that: While in the main routine my object of type Score had the correct values in the ANSWER array [RIGHT, RIGHT, RIGHT, RIGHT], when I got to my Score::isExactMatch() function, all the values of the array were set to WRONG. The array was simultaneously set to two different things?? Anyway, this led to all the functions that call Score::isExactMatch() to not be entirely correct either. The problem was actually with my endRound function in Mastermind class. I was not using the private member variable of type score, and was creating a new object of class type in that function. This way, the program had no way of remembering what the score was.
+
+2)
+
+           // testing the piece class
+           Piece p;
+           assert( p.getColor() == NOTVALID );
+           p = Piece( "G" );
+           assert( p.getColor() == GREEN );
+           assert( p.getColorAsString() == "G" );
+
+	   // testing Move class in relation with Piece class, 
+           Move m;
+           p = m.getPiece( 0 );
+           assert( p.getColor() == NOTVALID );
+           m.setPieces( "RBGB" ); 
+           p = m.getPiece( 2 );
+           assert( p.getColor() == GREEN ); // seeing if it sets colours correctly
+           m.setPiece( 2, 'y' );
+           p = m.getPiece( 2 );
+           assert( p.getColor() == YELLOW );
+
+	   //testing score class
+           Score s;
+           assert( s.isExactMatch()  == false );
+           assert( s.getAnswer( 2 ) == WRONG ); // testing default constructor's initializations
+           m.setPieces( "RBRB" );
+           Move theAnswer;
+           theAnswer.setPieces( "YOYO" );
+           s = Score( m, theAnswer );
+           assert( s.isExactMatch() == false ); // testing if score works well in the case that move does not match answer
+           assert( s.to_string() == "____" );
+           theAnswer.setPieces( "rbrb" );
+           s = Score( m, theAnswer );
+           assert( s.isExactMatch() == true ); // testing if score works when move matches answer
+           assert( s.to_string() == "RRRR" );
+
+	   // Testing Board Class
+           Board b;
+           assert( b.getCurrentRound() == 0 );
+           m.setPieces( "POPP" );
+           theAnswer.setPieces( "YYOP" );
+           s = Score( m, theAnswer );
+           b.endRound( m, s );
+           assert( b.getCurrentRound() == 1 ); // testing if increments correctly
+           assert( b.getMoveForRound( 0 ).to_string() == "POPP" ); // testing board in relation to move function
+           assert( b.getScoreForRound( 0 ).to_string() == "_M_R" ); // testing board in relation to score function 
+
+           Mastermind game( "rbgo" ); // testing whole game --> mastermind contains all other classes
+           assert( game.answer() == "RBGO" );
+           assert( game.gameIsOver() == false ); // case that game isn't over yet
+           m = game.play( "BBBB" );
+           s = game.endRound( m );
+           assert( s.to_string() == "_R__" ); //testing if Mastermind::end round works
+
+      
